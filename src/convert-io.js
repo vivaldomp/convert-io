@@ -2,12 +2,13 @@
 
 const fs = require("fs");
 const { pipeline } = require("stream");
-const csvToJson = require("./transformers/csvToJson");
+const CsvToJson = require("./transformers/csvToJson");
 
 class ConvertIO {
-  generateJSonFileFromCsv(csvFile, jsonFile) {
+  generateJSonFileFromCsv(csvFile, jsonFile, layout) {
     const csvReadStream = fs.createReadStream(csvFile);
     const jsonWriteStream = fs.createWriteStream(jsonFile);
+    const csvToJson = new CsvToJson({ layout });
     pipeline(
       csvReadStream,
       csvToJson,
