@@ -26,7 +26,7 @@ class CsvToJson extends Transform {
       })
       result.push(object);
     })
-    this.push();
+    this.push(JSON.stringify(result));
     callback();
   }
 
