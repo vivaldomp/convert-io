@@ -2,6 +2,7 @@
 
 const convertIO = require("./src/convert-io");
 const { TYPE_NUMBER, TYPE_STRING, TYPE_BOOL } = require("./src/constants");
+const { stdout } = require("process");
 
 const layout = {
   delimiter : ";",
@@ -17,3 +18,4 @@ const layout = {
 };
 
 convertIO.generateJSonFileFromCsv("test.csv", "test.json", layout);
+convertIO.getJSonFromCsv("test.csv", layout).pipe(stdout);

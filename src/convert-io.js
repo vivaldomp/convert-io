@@ -20,6 +20,12 @@ class ConvertIO {
       }
     );
   }
+
+  getJSonFromCsv(csvFile, layout) {
+    const csvReadStream = fs.createReadStream(csvFile);
+    const csvToJson = new CsvToJson({ layout });
+    return csvReadStream.pipe(csvToJson)
+  }
 }
 
 module.exports = new ConvertIO();

@@ -9,7 +9,6 @@ function convertToNumber(value) {
 }
 
 function convertToBool(value) {
-  console.log(value);
   return Boolean(value);
 }
 
